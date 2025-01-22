@@ -6,37 +6,18 @@
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
+  Serial.begin(9600);
   strip.begin();        // Initialisiert den RGB-Ring
   strip.show();         // Alle LEDs ausschalten
-  strip.setBrightness(50); // Helligkeit (0 bis 255)
-}
-
-// Funktion: Erzeugt eine Farbe basierend auf der Position im Farbrad
-uint32_t Wheel(byte WheelPos) {
-  WheelPos = 255 - WheelPos;
-  if (WheelPos < 85) {
-    return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
-  }
-  if (WheelPos < 170) {
-    WheelPos -= 85;
-    return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
-  }
-  WheelPos -= 170;
-  return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
-}
-
-// Funktion: Regenbogeneffekt
-void rainbowCycle(int wait) {
-  for (int j = 0; j < 256 * 5; j++) { // 5 volle Zyklen durchlaufen
-    for (int i = 0; i < strip.numPixels(); i++) {
-      strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + j) & 255));
-    }
-    strip.show();
-    delay(wait);
-  }
+  strip.setBrightness(150); // Helligkeit (0 bis 255)
 }
 
 void loop() {
-  rainbowCycle(1);     // Starte eine Regenbogenanimation
+//  int ledNum = strip.numPixels();
+  strip.setPixelColor(1, 155, 0, 80, 100); //setPixelColor setzt mit Dezimalwerten, weitere Optionen möglich.
+
+
+  strip.fill(0x0000ffff, 6, 10); //fill funktionier nur mit 32-Bit Farbcodierung
+  strip.show();
 }
 
