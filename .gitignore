@@ -11,3 +11,8 @@
 # Git
 .gitattributes
 
+
+#PlatformIO
+lib/
+test/
+include/
