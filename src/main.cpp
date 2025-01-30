@@ -58,6 +58,33 @@ delay(1000);
     }
   }
 */
+
+/*
+for(int i = 0; i < 6; i++){
+    
+    {
+      
+      
+       for (int k = 0; k < 125; k++)
+       {
+        for(int j = 0; j < strip.numPixels(); j++){
+        strip.setPixelColor(j, 255,255,255);}
+        strip.setBrightness(45+k);
+        delay(10);
+        strip.show();
+       }
+       
+       for (int k = 0; k < 125; k++)
+       {
+        for(int j = 0; j < strip.numPixels(); j++){
+        strip.setPixelColor(j, 255,255,255);}
+        strip.setBrightness(170-k);
+        delay(10);
+        strip.show();
+       }
+    }
+}
+*/
   strip.show();
   delay(500); 
 }
